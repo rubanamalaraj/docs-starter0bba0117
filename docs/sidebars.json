@@ -2,70 +2,67 @@
   "mySidebar": [
     {
       "type": "category",
-      "label": "Overview",
+      "label": "MAD Programs",
       "items": [
         {
           "type": "doc",
-          "id": "overview/introduction",
-          "label": "Introduction"
+          "id": "programs/1",
+          "label": "Greatest among three numbers"
         },
         {
           "type": "doc",
-          "id": "overview/basic-features",
-          "label": "Basic features"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Getting started",
-      "items": [
-        {
-          "type": "doc",
-          "id": "getting-started/quickstart",
-          "label": "Quickstart"
+          "id": "programs/2",
+          "label": "Personal details using GUI Components"
         },
         {
           "type": "doc",
-          "id": "getting-started/set-up-your-first-project",
-          "label": "Set up your first project"
+          "id": "programs/3",
+          "label": "Application that uses the radio button"
         },
         {
           "type": "doc",
-          "id": "getting-started/configuration",
-          "label": "Configuration"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Editing docs",
-      "items": [
-        {
-          "type": "doc",
-          "id": "editing-docs/manange-your-docs",
-          "label": "Manange your docs"
+          "id": "programs/4",
+          "label": "Application that uses the image button"
         },
         {
           "type": "doc",
-          "id": "editing-docs/docs-components",
-          "label": "Docs components"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Customizing",
-      "items": [
-        {
-          "type": "doc",
-          "id": "customizing/customize-with-json-file",
-          "label": "Customize with json file"
+          "id": "programs/5",
+          "label": "Application that uses Alert Dialog Box"
         },
         {
           "type": "doc",
-          "id": "customizing/customize-through-platform",
-          "label": "Customize through platform"
+          "id": "programs/6",
+          "label": "Application that uses Layout Managers"
+        },
+        {
+          "type": "doc",
+          "id": "programs/7",
+          "label": "Application that uses audio mode"
+        },
+        {
+          "type": "doc",
+          "id": "programs/8",
+          "label": "Send messages from one mobile to another mobile"
+        },
+        {
+          "type": "doc",
+          "id": "programs/9",
+          "label": "Application to send email"
+        },
+        {
+          "type": "doc",
+          "id": "programs/10",
+          "label": "Application to make calls"
+        },
+        {
+          "type": "doc",
+          "id": "programs/11",
+          "label": "Application for Student Mark sheet processing"
+        },
+        {
+          "type": "doc",
+          "id": "programs/12",
+          "label": "Application for Login Page in Database"
         }
       ]
     }
