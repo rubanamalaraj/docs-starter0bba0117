@@ -1,0 +1,100 @@
+# Application for Student Mark sheet processing
+
+### activity_main.xml file:
+```xml activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:text="Total Score: 0\nPercentage: 0%" />
+
+    <EditText
+        android:id="@+id/englishMarksEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="English Marks"
+        android:inputType="number"
+        android:layout_below="@+id/resultTextView" />
+
+    <EditText
+        android:id="@+id/mathMarksEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Math Marks"
+        android:inputType="number"
+        android:layout_below="@+id/englishMarksEditText" />
+
+    <EditText
+        android:id="@+id/scienceMarksEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Science Marks"
+        android:inputType="number"
+        android:layout_below="@+id/mathMarksEditText" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:layout_below="@+id/scienceMarksEditText" />
+
+</RelativeLayout>
+```
+
+### MainActivity.java file:
+```java MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private EditText englishMarksEditText;
+    private EditText mathMarksEditText;
+    private EditText scienceMarksEditText;
+    private TextView resultTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        englishMarksEditText = findViewById(R.id.englishMarksEditText);
+        mathMarksEditText = findViewById(R.id.mathMarksEditText);
+        scienceMarksEditText = findViewById(R.id.scienceMarksEditText);
+        resultTextView = findViewById(R.id.resultTextView);
+        Button calculateButton = findViewById(R.id.calculateButton);
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculateResult();
+            }
+        });
+    }
+
+    private void calculateResult() {
+        int englishMarks = Integer.parseInt(englishMarksEditText.getText().toString());
+        int mathMarks = Integer.parseInt(mathMarksEditText.getText().toString());
+        int scienceMarks = Integer.parseInt(scienceMarksEditText.getText().toString());
+        int totalMarks = englishMarks + mathMarks + scienceMarks;
+        double percentage = (double) totalMarks / 3;
+        resultTextView.setText("Total Score: " + totalMarks + "\nPercentage: " + String.format("%.2f", percentage) + "%");
+    }
+}
+```
