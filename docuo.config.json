@@ -1,5 +1,5 @@
 {
-  "title": "My site",
+  "title": "BCA MAD Programs",
   "favicon": "image/favicon.ico",
   "themeConfig": {
     "navbar": {
@@ -11,7 +11,7 @@
           "sidebarIds": [
             "mySidebar"
           ],
-          "label": "Documentation",
+          "label": "Programs",
           "position": "left"
         }
       ],
@@ -19,13 +19,13 @@
     },
     "footer": {
       "logo": "image/logo.png",
-      "caption": "My project",
+      "caption": "BCA MAD Programs",
       "links": [
         {
-          "title": "Product",
+          "title": "Contents",
           "items": [
             {
-              "label": "documentation",
+              "label": "Programs",
               "to": "/"
             }
           ]
