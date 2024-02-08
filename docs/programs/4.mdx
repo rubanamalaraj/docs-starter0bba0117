@@ -1,0 +1,47 @@
+# Application that uses Image button
+
+### activity_main.xml file:
+```xml activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/image_button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/image_file_name"
+        android:onClick="myImageButtonClicked"/>
+
+</RelativeLayout>
+```
+
+### MainActivity.java file:
+```java MainActivity.java
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void myImageButtonClicked(View view) {
+        // Perform the desired action when the image button is clicked
+        Toast.makeText(this, "Image button clicked", Toast.LENGTH_SHORT).show();
+    }
+}
+```
