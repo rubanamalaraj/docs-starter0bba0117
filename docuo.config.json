@@ -1,10 +1,10 @@
 {
   "title": "BCA MAD Programs",
-  "favicon": "image/favicon.ico",
+  "favicon": "https://media-resource.spreading.io/docuo/workspace87/1e1d097afb62be9140e6dfb39b6083e3/favicon.ico",
   "themeConfig": {
     "navbar": {
       "title": "BCA%20MAD%20Programs",
-      "logo": "image/logo.png",
+      "logo": "https://media-resource.spreading.io/docuo/workspace87/1e1d097afb62be9140e6dfb39b6083e3/logo.png",
       "items": [
         {
           "type": "docSidebar",
