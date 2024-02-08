@@ -1,0 +1,87 @@
+# Application to send email
+
+### activity_main.xml file:
+```xml activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recipientET"
+        android:inputType="textEmailAddress"
+        android:hint="Recipient"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subjectET"
+        android:inputType="textEmailSubject"
+        android:hint="Subject"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contentET"
+        android:hint="Content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/sendEmail"
+        android:text="Send Mail"/>
+
+</LinearLayout>
+```
+
+### MainActivity.java file:
+```java MainActivity.java
+package com.example.myapplication;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private EditText recipient, subject, content;
+    private Button sendMail;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        recipient = findViewById(R.id.recipientET);
+        subject = findViewById(R.id.subjectET);
+        content = findViewById(R.id.contentET);
+        sendMail = findViewById(R.id.sendEmail);
+
+        sendMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + recipient.getText().toString()));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
+                emailIntent.putExtra(Intent.EXTRA_TEXT, content.getText().toString());
+
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+}
+```
