@@ -1,0 +1,98 @@
+# Application that uses audio mode
+
+### activity_main.xml file:
+```xml AndroidManifest.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+    ....
+    </application>
+</manifest>
+```
+
+### activity_main.xml file:
+```xml activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Normal" />
+
+    <Button
+        android:id="@+id/btn_silent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Silent" />
+
+    <Button
+        android:id="@+id/btn_vibrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vibrate" />
+
+</LinearLayout>
+```
+
+### MainActivity.java file:
+```java MainActivity.java
+package com.example.myapplication;
+
+import android.content.Context;
+import android.media.AudioManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private Button btnNormal;
+    private Button btnSilent;
+    private Button btnVibrate;
+    private AudioManager audioManager;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        btnNormal = findViewById(R.id.btn_normal);
+        btnSilent = findViewById(R.id.btn_silent);
+        btnVibrate = findViewById(R.id.btn_vibrate);
+        
+        btnNormal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        });
+        
+        btnSilent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            }
+        });
+        
+        btnVibrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+            }
+        });
+    }
+}
+```
